@@ -1,0 +1,69 @@
+Memoria virtuale - https://blog.holbertonschool.com/hack-the-virtual-memory-c-strings-proc/
+
+Attraverso la memoria virtuale:
+- il sistema operativo rende più sicuro il funzionamento dei programmi
+- i programmi sono più semplici 
+in quanto non devono gestire una memoria condivisa
+
+Questo comporta che:
+- ogni processo ha la propria memoria virtuale
+- la quantità di memoria virtuale dipende dal tipo di architettura
+del processore del computer che si utilizza
+
+esistono due tipi di memoria (differenti dalla RAM)
+che ogni programma ha a disposizione per funzionare.
+
++++ Lo STACK (higher addresses)
+Questa porzione di memoria viene utilizzata da un programma per 
+far funzionare i metodi
+Quando un programma chiama un suo metodo, le variabili passate al metodo
+ed il risultato che esso fornisce vengono salvati nello stack
+
++++ L'HEAP (lower addresses)
+Questa porzione di memoria invece viene riservata all'allocazione dinamica
+della memoria
+
+======================
+
+La grandezza della memoria virtuale è data dal tipo di architettura
+Questo vuol dire che se usiamo un processore a 64bit, la grandezza 
+per ogni processo sarà 2^64 
+in hex da 0x0 a 0xffffffffffffffff 
+
+Sapendo ciò, possiamo stabilire quale è un indirizzo dell'HEAP
+(che sarà un lower address) e quale no
+Questo grazie al comando "proc", il quale, se siamo a conoscenza del pid
+di un determinato programma ci fornirà una mappa della memoria del programma
+stesso.
+
+La difficoltà sta nel fatto che noi non sappiamo a quale esadecimale è
+correlata una determinata variabile e perciò nella grande quantità 
+di variabili di un programma vero e proprio e non di un esempio risulterà
+difficile lavorare sotto questo aspetto.
+
+
+
+comandi utili: (in ambiente unix)
+
+/proc/[pid]/mem
+              This file can be used to access the pages of a process's memory
+          through open(2), read(2), and lseek(2).
+
+/proc/[pid]/maps
+              A  file containing the currently mapped memory regions and their access permissions.
+          See mmap(2) for some further information about memory mappings.
+
+come leggere e sovrascrivere la memoria: (in ambiente macos)
+(https://stackoverflow.com/questions/10668/reading-other-process-memory-in-os-x)
+
+
+
+
+
+
+So, the picture is that after obtaining a port send right, the client uses a port name 
+to send messages to the port, or exactly one message if it's a send-once right. 
+These messages are (probably) queued and when the server task tries to receive messages by having a thread 
+use its port receive right, it gets the message(s). This is called IPC.
+(https://www.gnu.org/software/hurd/microkernel/mach/port.html)
+
