@@ -8,7 +8,7 @@
 #include <string.h>
 #include <sys/types.h>
 
-// usage: ./executable [pid] [vm_addr] [R/W] [string to write]
+// usage: ./executable (pid) (virtual mem addr) [r/w] [string to write]
 
 int main(int argc, char **argv) {
   /*
@@ -108,9 +108,9 @@ int main(int argc, char **argv) {
   // R/W Bytes size | tmp
   vm_region_p.size = 128;
 
-  printf(
+  /*printf(
       "Allocating new vm region on the same address to execute the "
-      "overwriting\n");
+      "overwriting\n");*/
 
   // here we allocate a new vm region on the same address of the previous
   /*kret = mach_vm_allocate(task, &vm_region_p.addr, vm_region_p.size,
@@ -121,8 +121,8 @@ int main(int argc, char **argv) {
     return 1;
   }*/
 
-  // If we don't set access control for our virtual memory region, we won't be
-  // able to execute it.
+  /* If we don't set access control for our virtual memory region, we won't be
+   able to execute it. */
 
   kret = mach_vm_protect(task, vm_region_p.addr, vm_region_p.size, FALSE,
                          vm_region_p.prot);
@@ -161,7 +161,11 @@ int main(int argc, char **argv) {
     }
   } else if (action == 2) {
     printf("Writing the string on the memory region\n");
-    // here we write the string
+    
+    /* here we write the string
+      test.c print a string stored in a char with a size of 4 bytes
+      so changing the string with a 5 (or more) bytes one, will cause a segfault 
+      */
     kret =
         mach_vm_write(task, vm_region_p.addr, string_to_ow, vm_region_p.size);
 

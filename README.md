@@ -20,4 +20,8 @@ If you need to get some view about the virtual memory of a **pid** you can use t
 
 Just clone the repository with git clone ->  ```cd repo_name && cd src``` -> ```clang main.c -o main``` 
 
+# Useful links
 
+  
+
+[vm_read](http://web.mit.edu/darwin/src/modules/xnu/osfmk/man/vm_read.html) from MIT
