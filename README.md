@@ -10,7 +10,7 @@ Run the project is pretty simple, you just need three arguments
 
   
 
-```./main (pid) (virtual mem addr) [r/w]```
+```sudo ./main (pid) (virtual mem addr) [r/w]```
 
   
 
