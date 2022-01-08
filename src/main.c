@@ -146,7 +146,7 @@ int main(int argc, char **argv) {
 
     printf("Reading the string on the memory region\n");
 
-    // http://web.mit.edu/darwin/src/modules/xnu/osfmk/man/vm_read.html
+    /* http://web.mit.edu/darwin/src/modules/xnu/osfmk/man/vm_read.html */
     mach_vm_read(task, vm_region_p.addr, vm_region_p.size, &vm_region_p.buf,
                  &vm_region_p.sz);
 
