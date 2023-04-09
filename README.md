@@ -3,7 +3,7 @@
 
 # XNU Virtual Memory Modder
 
-  **this code is not good, one day i'll work again on this** 
+  # this code is not good, one day i'll work again on this
 
 Due to the lack of documentation about the _mach_ library, I decided to share this project on Github, in the hope that would be useful for someone working with same libraries
 
