@@ -3,7 +3,6 @@
 
 # XNU Virtual Memory Modder
 
-CODE REVIEW'S MANDATORY BECAUSE IT'S VERY BAD BUT IVE NO TIME
 
   
 
